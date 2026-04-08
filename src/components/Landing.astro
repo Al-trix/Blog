@@ -1,0 +1,27 @@
+---
+import { BookOpenIcon, ChevronDownIcon } from '@heroicons/react/24/solid'
+import LineLanding from './LineLanding.astro'
+---
+
+<section class="mt-30 flex items-center flex-col  justify-center">
+  
+  <LineLanding left='left-1/4'/>
+  <LineLanding left='left-1/2'/>
+  <LineLanding left='left-3/4'/>
+  <LineLanding left='left-3'/>
+
+  <div class="flex items-center flex-col gap-3 justify-center relative z-10">
+    <BookOpenIcon className='w-50 text-sky-200 h-50 drop-shadow-xl drop-shadow-sky-900'/>
+    <h1 class="text-sky-300 uppercase tracking-wide font-bold text-3xl">My blog about the evidences</h1>
+    <p class="text-center w-[60%] text-xs text-sky-200/60 ">This blog is about my evidences of english and it´s the process of my learning with the curse of  <span class="font-bold">English B2+</span> at <span class="font-bold">SENA</span> </p>
+  </div>
+  <div>
+    <button class="flex items-center  text-white  mt-25 animate-bounce rounded-full transition-colors">
+      <ChevronDownIcon className='w-11 h-11 text-white/60 text-bold'/>
+    </button>
+  </div>
+</section>
+
+<style>
+ 
+</style>

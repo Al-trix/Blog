@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  id: string;
+}
+import { MapIcon, UserGroupIcon } from '@heroicons/react/24/solid';
+const { title, description, id } = Astro.props;
+---
+
+<article
+  class="multimedia-item bg-black/20 w-full px-8 py-4 rounded-lg shadow-lg shadow-black/10 transition-all duration-500 opacity-0 pointer-events-none translate-y-10 hidden"
+  data-multimedia-id={id}
+>
+  <div class="flex items-center gap-2">
+    {
+      id === '1' ? (
+        <MapIcon className="w-6 text-sky-300 h-6" />
+      ) : id === '3' ? (
+        <UserGroupIcon className="w-6 text-sky-300 h-6" />
+      ) : (
+        ''
+      )
+    }
+    <h2 class="text-2xl font-bold text-sky-300">{title}</h2>
+  </div>
+  <p class="text-sm my-2 text-white/70">{description}</p>
+  <span class="bg-white/10 my-2 h-px w-1/2 rounded-full flex"></span>
+  <div class="my-4">
+    <slot />
+  </div>
+</article>
+
+<style>
+  .active-anim {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    translate: 0 0 !important;
+  }
+</style>

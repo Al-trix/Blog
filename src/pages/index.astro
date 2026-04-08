@@ -1,11 +1,35 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Landing from '../components/Landing.astro';
 import Layout from '../layouts/Layout.astro';
-
+import Evidence1 from '../components/evidences/evidence1/Evidence1.astro';
+import Evidence2 from '../components/evidences/evidence2/Evidence2.astro';
+import Multimedias from '../components/evidences/multimedia/Multimedias.astro';
+import ExtrasEvidences from '../components/evidences/evidencesExtras/ExtrasEvidences.astro';
+import Posts from '../components/Posts.astro';
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Blog | Alvaro Arboleda">
+  <Landing />
+  <span class="bg-sky-900/5 my-7 h-1 w-full rounded-full flex"></span>
+  <div id="posts" class="scroll-mt-20">
+    <Posts />
+  </div>
+  <span class="bg-sky-900/5 my-7 h-1 w-full rounded-full flex"></span>
+  <div id="evidence1" class="scroll-mt-20">
+    <Evidence1 />
+  </div>
+  <span class="bg-sky-900/5 my-7 h-1 w-full rounded-full flex"></span>
+  <div id="evidence2" class="scroll-mt-20">
+    <Evidence2 />
+  </div>
+  <span class="bg-sky-900/5 my-20 h-1 w-full rounded-full flex"></span>
+  <div id="multimedias" class="scroll-mt-20">
+    <Multimedias />
+  </div>
+  <span class="bg-sky-900/5 my-15 h-1 w-full rounded-full flex"></span>
+  <div id="extras" class="scroll-mt-20">
+    <ExtrasEvidences />
+  </div>
 </Layout>

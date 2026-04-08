@@ -1,0 +1,124 @@
+---
+import MenuMultimedia from './MenuMultimedia.astro';
+import Multimedia from './Multimedia.astro';
+import { MapIcon, UserGroupIcon } from '@heroicons/react/24/solid';
+import audioUrl from './audio.mp3';
+---
+
+<section class="my-5 flex flex-col w-full items-center justify-center">
+  <MenuMultimedia />
+  <div
+    id="multimedia-container"
+    class="scroll-reveal relative overflow-hidden w-full max-w-4xl transition-[height] duration-500 ease-in-out mt-4 p-4 border border-sky-500/30 bg-slate-900/40 backdrop-blur-md rounded-2xl shadow-xl hover:border-sky-400/60"
+  >
+    <Multimedia
+      id="1"
+      title="Presentation about the comuna 13"
+      description="This is a presentation about the comuna 13"
+    >
+      <iframe
+        width="100%"
+        height="315"
+        src="https://www.youtube.com/embed/j03l_Pm2N7Y?si=zCugelgKG2jpPOzH"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </Multimedia>
+    <Multimedia
+      id="2"
+      title="Audio about me"
+      description="This is an audio about me"
+    >
+      <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+        <p class="text-white/80 italic">
+          Presentatios about me, alvaro arboleda marulanda
+        </p>
+        <audio controls class="mt-4 w-full h-10">
+          <source src={audioUrl} type="audio/mp3" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </Multimedia>
+    <Multimedia
+      id="3"
+      title="Interview"
+      description="This is an interview about the comuna 13"
+    >
+      <iframe
+        width="100%"
+        height="315"
+        src="https://www.youtube.com/embed/JZ5aWQcCvhM?si=cLoiUDiFjcPfHc_t"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </Multimedia>
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll('.btn-multimedia');
+  const items = document.querySelectorAll('.multimedia-item');
+  const container = document.getElementById('multimedia-container');
+
+  function showMultimedia(id: string) {
+    let activeItem: HTMLElement | null = null;
+
+    items.forEach((item) => {
+      if (item instanceof HTMLElement) {
+        if (item.dataset.multimediaId === id) {
+          activeItem = item;
+          item.classList.remove('hidden');
+          // Trigger animation in next frame
+          requestAnimationFrame(() => {
+            item.classList.add('active-anim');
+          });
+        } else {
+          item.classList.remove('active-anim');
+          // Hide after transition
+          setTimeout(() => {
+            if (!item.classList.contains('active-anim')) {
+              item.classList.add('hidden');
+            }
+          }, 500);
+        }
+      }
+    });
+
+    // Adjust container height
+    if (activeItem && container) {
+      // Need to wait for rendering to get accurate height
+      requestAnimationFrame(() => {
+        const height = (activeItem as HTMLElement).offsetHeight;
+        container.style.height = `${height}px`;
+      });
+    }
+
+    buttons.forEach((btn) => {
+      if (btn instanceof HTMLElement) {
+        if (btn.dataset.targetId === id) {
+          btn.classList.add('bg-sky-500', 'text-white');
+        } else {
+          btn.classList.remove('bg-sky-500', 'text-white');
+        }
+      }
+    });
+  }
+
+  // Initial state
+  window.addEventListener('load', () => {
+    showMultimedia('1');
+  });
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      if (button instanceof HTMLElement) {
+        const id = button.dataset.targetId;
+        if (id) showMultimedia(id);
+      }
+    });
+  });
+</script>

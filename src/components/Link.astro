@@ -1,0 +1,14 @@
+---
+const { href, text } = Astro.props;
+---
+
+<li class="relative active:scale-90 transition-transform duration-300">
+  <a
+    href={href}
+    class="text-sky-100/80 tracking-wide text-sm hover:text-sky-200 transition-colors"
+    >{text}</a
+  >
+  <span
+    class="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-sky-500 to-sky-800 transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300"
+  ></span>
+</li>

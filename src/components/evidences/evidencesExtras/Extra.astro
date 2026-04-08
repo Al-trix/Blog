@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+
+<article
+  class="extra-card group flex flex-col w-full h-full px-6 py-6 border rounded-2xl shadow-xl transition-all duration-300 hover:-translate-y-1"
+>
+  <h2 class="theme-heading text-2xl font-bold transition-colors tracking-tight">
+    {title}
+  </h2>
+  <div
+    class="w-12 h-1 bg-linear-to-r from-sky-500 to-blue-600 rounded-full my-3 group-hover:w-full transition-all duration-500"
+  >
+  </div>
+  <p class="theme-muted text-sm my-1 leading-relaxed">{description}</p>
+  <div class="mt-4 grow">
+    <slot />
+  </div>
+</article>
+
+<style>
+  .extra-card {
+    background: var(--card-bg);
+    border-color: var(--card-border);
+  }
+  .extra-card:hover {
+    border-color: var(--card-border-hover);
+  }
+</style>

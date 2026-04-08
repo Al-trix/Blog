@@ -1,0 +1,30 @@
+---
+import Link from './Link.astro';
+---
+
+<nav class="flex items-center justify-between w-full">
+  <!-- Logo -->
+  <a href="/" class="nav-logo flex items-center gap-1 transition-colors">
+    <span class="text-2xl font-black leading-none" style="color: var(--accent)"
+      >A</span
+    >
+    <span class="text-sm font-semibold tracking-wide text-sky-200/80"
+      >lvaro blog</span
+    >
+  </a>
+
+  <!-- Links -->
+  <ul class="flex gap-8 items-center">
+    <Link href="#posts" text="Posts" />
+    <Link href="#evidence1" text="Evidencia 1" />
+    <Link href="#evidence2" text="Evidencia 2" />
+    <Link href="#multimedias" text="Multimedias" />
+    <Link href="#extras" text="Extras" />
+  </ul>
+</nav>
+
+<style>
+  .nav-logo:hover span {
+    opacity: 1;
+  }
+</style>

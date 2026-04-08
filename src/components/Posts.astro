@@ -1,0 +1,24 @@
+---
+import Post from './Post.astro';
+---
+
+<section>
+  <div class="group flex flex-col px-4 justify-center">
+    <h2 class="theme-heading text-3xl font-bold tracking-tight">Posts</h2>
+    <div
+      class="w-12 h-1 bg-linear-to-r from-sky-500 to-blue-600 rounded-full my-3 group-hover:w-40 transition-all duration-500"
+    >
+    </div>
+    <p class="theme-muted text-sm">Check out my latest posts</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+      <Post
+        title="AI and the future of programming"
+        description="The rise of AI has sparked debate about its impact on the programming industry. While some fear it may replace human developers, others see it as a tool that can enhance productivity and creativity, but is it really true?. actually the bubble is breaking for the companies that are raising prices for the AI tools, the market is saturated and the companies are starting to realize that they can't keep raising prices indefinitely, so they are starting to lower prices to stay competitive, but is it enough to save them?."
+      />
+      <Post
+        title="The bias of the elections in colombia 2026"
+        description="The policy in colombia is on issue very hard of treat for the many opinions that the people have and the divisions that this will have, but in a point as the people don´t want to intervene or simply denies the existence of the republic in our country, we have to look  the way to know what kind of person we are electing to power is because this is something much more important that should matter to us, and it is such an ignorant bias to evade the political past and only be guided by mere speculation without reading about what is really happening in this country."
+      />
+    </div>
+  </div>
+</section>

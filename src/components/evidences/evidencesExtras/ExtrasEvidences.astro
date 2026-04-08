@@ -1,0 +1,78 @@
+---
+import Extra from './Extra.astro';
+import { Image } from 'astro:assets';
+import folletoImg from './folleto.jpeg';
+import mapaImg from './mapa.jpeg';
+---
+
+<section class="max-w-6xl mx-auto py-20 px-6 relative flex flex-col w-full">
+  <div class="flex flex-col mb-12 relative z-10 text-center items-center">
+    <div class="flex items-center gap-3 mb-2">
+      <span class="w-8 h-px bg-sky-500/50"></span>
+      <span class="text-sky-500 uppercase text-[10px] font-bold tracking-widest"
+        >Additional Materials</span
+      >
+      <span class="w-8 h-px bg-sky-500/50"></span>
+    </div>
+    <h2
+      class="text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter"
+    >
+      Maps <span
+        class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500"
+        >Evidences</span
+      >
+    </h2>
+    <p class="text-sky-200/50 max-w-lg text-sm leading-relaxed">
+      This is the folleto and the map of my evidences in english about my info
+      and more details.
+    </p>
+  </div>
+  <div
+    class="grid grid-cols-1 mt-6 md:grid-cols-2 gap-8 relative z-10 w-full px-6"
+  >
+    <div class="scroll-reveal w-full">
+      <Extra
+        title="Folleto"
+        description="Software development and analysis brochure, detailing goals, study process, and professional experience at SENA."
+      >
+        <div class="aspect-[4/3] w-full overflow-hidden rounded-lg">
+          <Image
+            src={folletoImg}
+            alt="folleto"
+            class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <div class="flex justify-center">
+          <a
+            href="./folleto.pdf"
+            target="_blank"
+            class="text-sky-500 mt-3 text-center mx-auto bg-sky-900/30 px-4 py-2 rounded-lg hover:text-sky-600 transition-colors"
+            >View Brochure</a
+          >
+        </div>
+      </Extra>
+    </div>
+    <div class="scroll-reveal w-full" style="animation-delay: 200ms;">
+      <Extra
+        title="Mapa"
+        description="Personal Learning Environment (PLE) map showing the tools, methods and contexts used for continuous learning and professional growth."
+      >
+        <div class="aspect-[4/3] w-full overflow-hidden rounded-lg">
+          <Image
+            src={mapaImg}
+            alt="mapa"
+            class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <div class="flex justify-center">
+          <a
+            href="https://al-trix.github.io/"
+            target="_blank"
+            class="text-sky-500 mt-7 mx-auto text-center bg-sky-900/30 px-4 py-2 rounded-lg hover:text-sky-600 transition-colors"
+            >View Map</a
+          >
+        </div>
+      </Extra>
+    </div>
+  </div>
+</section>

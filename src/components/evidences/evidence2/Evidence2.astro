@@ -1,0 +1,101 @@
+---
+import { Content, frontmatter } from './correo.md';
+import TtitleEvidences from '../../TtitleEvidences.astro';
+import { UserIcon, ShareIcon, EnvelopeIcon } from '@heroicons/react/24/solid';
+---
+
+<section class="mx-auto">
+  <TtitleEvidences
+    title="Correo"
+    description="This evidence is about the email"
+  />
+  <article
+    id="email-content"
+    class="scroll-reveal w-2/3 mx-auto p-6 mt-4 shadow-xl border border-sky-500/30 bg-slate-900/40 backdrop-blur-md rounded-2xl relative overflow-hidden"
+  >
+    <div
+      class="absolute -top-10 -right-10 w-32 h-32 bg-sky-500/10 rounded-full blur-2xl -z-0"
+    >
+    </div>
+    <div class="relative z-10">
+      <div class="flex items-center gap-2">
+        <p>
+          <span class="text-sky-300 flex items-center gap-2">
+            <UserIcon className="w-4 h-4" /> From:</span
+          >
+        </p>
+        <p class="text-sky-200/60 text-sm">
+          {frontmatter.from}
+        </p>
+      </div>
+      <div class="flex items-center gap-2 mt-2">
+        <p>
+          <span class="text-sky-300 flex items-center gap-2">
+            <ShareIcon className="w-4 h-4" /> To:</span
+          >
+        </p>
+        <p class="text-sky-200/60 text-sm">
+          {frontmatter.to}
+        </p>
+      </div>
+      <div class="flex items-center gap-2 mt-2">
+        <p>
+          <span class="text-sky-300 flex items-center gap-2">
+            <EnvelopeIcon className="w-4 h-4" /> Subject:</span
+          >
+        </p>
+        <p class="text-sky-200/60 text-sm font-semibold">
+          {frontmatter.subject}
+        </p>
+      </div>
+      <span class="w-full h-px bg-sky-500/20 flex my-4 mb-6"></span>
+      <div class="email-content text-sky-200/70">
+        <Content />
+      </div>
+    </div>
+  </article>
+</section>
+
+<style>
+  /* ── Colorimetry palette ── */
+  .email-content :global(h2) {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #38bdf8; /* sky-400 */
+    letter-spacing: 0.01em;
+    margin-bottom: 0.75rem;
+  }
+
+  .email-content :global(h3) {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #60a5fa; /* blue-400 */
+    margin-bottom: 0.4rem;
+  }
+
+  .email-content :global(p) {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #cbd5e1; /* slate-300 */
+    margin-bottom: 0.85rem;
+  }
+
+  .email-content :global(strong) {
+    color: #7dd3fc; /* sky-300 */
+    font-weight: 600;
+  }
+
+  /* Divider inside markdown */
+  .email-content :global(hr) {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #38bdf855, transparent);
+    margin: 1.25rem 0;
+  }
+
+  /* Signature block (h3 + bold after the hr) */
+  .email-content :global(h3 + p),
+  .email-content :global(hr + h3) {
+    color: #94a3b8; /* slate-400 */
+  }
+</style>
